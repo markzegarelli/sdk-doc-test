@@ -8,7 +8,7 @@ sdk_description: |-
 
   The main goal is to strip the existing SDK Doc format down to a bare minimum, and add back what is necessary and most helpful to users.
 updated_by: 3ab3cd91-c441-4bb7-a34a-74c0c19c7979
-updated_at: 1695923167
+updated_at: 1695924899
 method:
   -
     id: ln29nht4
@@ -355,6 +355,80 @@ method:
             fileDownloads: false,
           },
         });
+      mode: javascript
+    type: method
+    enabled: true
+  -
+    id: ln3hh1n0
+    name: amplitude.track(event)
+    is_method: true
+    sidebar_title: 'Track a custom event'
+    description: |-
+      You can track any other event or interaction on your site with the Track function.
+
+      For example, you can track a `Button Clicked` event when a user clicks a specific button.
+
+      You can also pass a BaseEvent object to the track function. For more information, see the [BaseEvent](https://amplitude.github.io/Amplitude-TypeScript/interfaces/_amplitude_analytics_browser.Types.BaseEvent.html) interface documentation.
+    example:
+      code: |-
+        // Track a basic event
+        amplitude.track('Button Clicked');
+
+        // Track events with optional properties
+        const eventProperties = {
+          buttonColor: 'primary',
+        };
+        amplitude.track('Button Clicked', eventProperties);
+
+        // Track an event with a BaseEvent object
+        // Define the event's properites
+        const event_properties = {
+          buttonColor: 'primary',
+        };
+
+        // Build the BaseEvent interface
+        const event = {
+          event_type: "Button Clicked", 
+          event_properties,
+        };
+
+        amplitude.track(event);
+      mode: javascript
+    type: method
+    enabled: true
+  -
+    id: ln3hm6io
+    name: Identify()
+    is_method: true
+    sidebar_title: 'Identify users'
+    description: |-
+      Use the Identify object to identify users and set user properties to enrich the information you gather about your users.
+
+      If the Identify call is sent after the event, the results of operations are visible immediately in the dashboard user’s profile area. However, they don't appear in chart results until another event is sent after the Identify call. The identify call only affects events going forward.
+
+      If you send the Identify call after you send an event, the results of that call are immediately visible in user profiles in Amplitude, but don't appear in charts until you send another event after the Identify call.
+    example:
+      code: |-
+        // Instantiate an Identify object
+        const identifyEvent = new amplitude.Identify();
+
+        // Send the object to Amplitude
+        amplitude.identify(identifyEvent);
+      mode: javascript
+    type: method
+    enabled: true
+  -
+    id: ln3hueyp
+    name: "Identify.set('property', 'value')"
+    is_method: true
+    sidebar_title: 'Set a user property'
+    description: "Use `Identify.set()` to set the value of a user property. For example, you can set a user's location."
+    example:
+      code: |-
+        const identifyEvent = new amplitude.Identify();
+        identifyEvent.set('location', 'LAX');
+
+        amplitude.identify(identifyEvent);
       mode: javascript
     type: method
     enabled: true
