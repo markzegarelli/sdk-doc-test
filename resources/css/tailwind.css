@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+@import "tailwindcss/base";
+
+@import "code";
+@import "content";
+@import "site";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@layer base {
+    h1 {
+        @apply text-2xl mb-8;
+        color: #2a2f45
+    }
+    h2 {
+        @apply text-xl;
+        color: #2a2f45
+    }
+    p {
+        color: #2a2f45;
+        margin-top: 1rem;
+    }
+    ul {
+        list-style: disc;
+        color: #444;
+        margin-left: 1rem;
+        margin-top: 0.5rem;
+    }
+}
+
+.copy {
+    width: calc(40vw - 5vw);
+    max-width: 600px;
+    margin-right: 5vw;
+    flex-shrink: 0;
+}
+
+.example {
+    max-width: 600px;
+    width: 100%;
+    min-width: 300px;
+    padding-top: 12px;
+    align-self: flex-start;
+    flex-grow: 1;
+    position: sticky;
+    top: 64px;
+    display: grid;
+}
+
+.divider {
+    margin-top: 1px;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 100%;
+    border-bottom: 1px solid #bebebe;
+    width: 100%;
+    
+}
+
+pre {
+    font-size: 12px!important;
+}

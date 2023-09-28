@@ -1,0 +1,94 @@
+<div class="container">
+<div class="w-56 h-100 fixed left-0 top-0 bottom-0 border-solid border-r border-grey-200 hidden lg:block">
+    <ul class="list-none pl-4 mt-16">
+        {{method}}
+            <li class="transition ease-in-out text-sm text-grey-500 duration-300 hover:text-grey-900"><a href="#{{sidebar_title | slugify}}">{{sidebar_title}}</a></li>
+        {{/method}}
+    </ul>
+</div>
+<div class="absolute top-0 left-0 lg:left-56 bottom-0 right-0">
+    <div class="w-full p-5">
+        <div class="box-border">
+            <div class="box-border flex flex-row justify-end flex-nowrap"
+                style="margin-left: -20px; margin-top: -20px;">
+                <div class="mt-5 mr-5 box-border">Link</div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full">
+        <section class="w-full flex flex-col items-center">
+            <div class="divider"></div>
+            <div class="flex flex-row w-full p-20">
+                <div class="copy">
+                    <div class="flex flex-row items-start justify-between">
+                        <h1>Amplitude SDK Doc POC</h1>
+                    </div>
+                    <div>
+                        <p>{{sdk_description | markdown}}</p>
+                    </div>
+
+                </div>
+                {{# <div class="example">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quo adipisci odit
+                    repellendus fugiat eos, quibusdam harum a illum, tempore amet eligendi. Eaque quisquam deserunt
+                    molestias aliquam enim explicabo numquam.</div> #}}
+            </div>
+
+        </section>
+
+        {{# Data hookup starts here #}}
+        {{ method }}
+        <section class="w-full flex flex-col items-center">
+            <div class="divider"></div>
+            <div class="w-full flex justify-center top-0 sticky mt-16 h-14 bg-light-blue-50 z-30 ">
+                <div class="flex flex-col justify-center w-full px-20">
+                    <div>
+                        <h4 class="text-lg {{if is_method }}font-mono{{/if}}" id="{{sidebar_title | slugify}}">{{ name }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="h-px w-full bg-grey-200 z-20 sticky top-14"></div>
+            <div class="w-full h-px bg-light-blue-50 z-[21] mt-[-1px]"></div>
+            <div class="flex flex-row w-full p-20 pt-0 sticky top-0">
+                <div class="copy">
+                    <div>
+                        <p>{{description | markdown}}</p>
+                    </div>
+                    {{if options }}
+                    <div class="mt-8">
+                        <h5 class="text-text-main mt-8 pb-3 border-b border-grey-300 text-lg flex items-baseline justify-between">Options</h5>
+                        <ul class="list-none p-0 m-0">
+                            {{ options }}
+                            <li class="py-4 border-b border-grey-200">
+                                <h3 class="flex text-xs m-0 items-baseline flex-wrap relative pt-2">
+                                    <span class="font-mono font-semibold text-text-main text-sm mr-1">{{option_name}}</span>
+                                    <span class="font-mono text-grey-200 text-xs overflow-auto">{{ option_type }}</span>
+                                    <span class="font-mono text-grey-200 text-xs ml-auto">{{ option_default}}</span>
+
+                                </h3>
+                                <div>
+                                    <div class="text-text-main mt-1 text-sm">
+                                        <p>{{ option_description }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            {{ /options }}
+                        </ul>
+                    </div>
+                    {{ /if }}
+                </div>
+                <div class="example">
+                    <pre class="line-numbers"><code class="language-js">
+{{ example }}
+                    </code></pre>
+
+
+                </div>
+            </div>
+
+        </section>
+        {{ /method }}
+
+    </div>
+
+</div>
+</div>

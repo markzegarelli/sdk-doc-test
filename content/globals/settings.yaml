@@ -1,0 +1,5 @@
+title: Settings
+data:
+  site_name: 'SDK Test'
+  personality: casual
+  show_signup: false

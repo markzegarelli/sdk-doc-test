@@ -1,0 +1,271 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: sdk_description
+            field:
+              restrict: false
+              buttons:
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - quote
+                - link
+                - image
+                - table
+              automatic_line_breaks: true
+              automatic_links: false
+              escape_markup: false
+              heading_anchors: false
+              smartypants: false
+              table_of_contents: false
+              antlers: false
+              type: markdown
+              display: 'SDK Description'
+              icon: markdown
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
+            handle: method
+            field:
+              collapse: true
+              previews: true
+              fullscreen: true
+              sets:
+                new_set_group:
+                  display: 'New Set Group'
+                  instructions: null
+                  icon: null
+                  sets:
+                    method:
+                      display: Method
+                      instructions: null
+                      icon: null
+                      fields:
+                        -
+                          handle: name
+                          field:
+                            input_type: text
+                            antlers: false
+                            type: text
+                            display: Name
+                            icon: text
+                            listable: hidden
+                            instructions_position: above
+                            visibility: visible
+                            replicator_preview: true
+                            hide_display: false
+                            width: 25
+                        -
+                          handle: is_method
+                          field:
+                            inline_label: 'Is this a method?'
+                            default: false
+                            type: toggle
+                            display: 'Is Method'
+                            icon: toggle
+                            width: 25
+                            listable: hidden
+                            instructions_position: above
+                            visibility: visible
+                            replicator_preview: true
+                            hide_display: false
+                        -
+                          handle: sidebar_title
+                          field:
+                            input_type: text
+                            antlers: false
+                            type: text
+                            display: 'Sidebar title'
+                            icon: text
+                            listable: hidden
+                            instructions_position: above
+                            visibility: visible
+                            replicator_preview: true
+                            hide_display: false
+                            width: 50
+                        -
+                          handle: description
+                          field:
+                            restrict: false
+                            buttons:
+                              - bold
+                              - italic
+                              - unorderedlist
+                              - orderedlist
+                              - quote
+                              - link
+                              - image
+                              - table
+                            automatic_line_breaks: true
+                            automatic_links: false
+                            escape_markup: false
+                            heading_anchors: false
+                            smartypants: false
+                            table_of_contents: false
+                            antlers: false
+                            type: markdown
+                            display: Description
+                            icon: markdown
+                            listable: hidden
+                            instructions_position: above
+                            visibility: visible
+                            replicator_preview: true
+                            hide_display: false
+                        -
+                          handle: options
+                          field:
+                            collapse: true
+                            previews: true
+                            fullscreen: true
+                            sets:
+                              new_set_group:
+                                display: 'New Set Group'
+                                instructions: null
+                                icon: null
+                                sets:
+                                  option:
+                                    display: Option
+                                    instructions: null
+                                    icon: null
+                                    fields:
+                                      -
+                                        handle: option_name
+                                        field:
+                                          input_type: text
+                                          antlers: false
+                                          type: text
+                                          display: 'Option Name'
+                                          icon: text
+                                          listable: hidden
+                                          instructions_position: above
+                                          visibility: visible
+                                          replicator_preview: true
+                                          hide_display: false
+                                          width: 33
+                                      -
+                                        handle: option_type
+                                        field:
+                                          input_type: text
+                                          antlers: false
+                                          type: text
+                                          display: 'Option Type'
+                                          icon: text
+                                          listable: hidden
+                                          instructions_position: above
+                                          visibility: visible
+                                          replicator_preview: true
+                                          hide_display: false
+                                          width: 33
+                                      -
+                                        handle: option_default
+                                        field:
+                                          input_type: text
+                                          antlers: false
+                                          type: text
+                                          display: 'Option Default'
+                                          icon: text
+                                          listable: hidden
+                                          instructions_position: above
+                                          visibility: visible
+                                          replicator_preview: true
+                                          hide_display: false
+                                          width: 33
+                                      -
+                                        handle: option_description
+                                        field:
+                                          restrict: false
+                                          buttons:
+                                            - bold
+                                            - italic
+                                            - unorderedlist
+                                            - orderedlist
+                                            - quote
+                                            - link
+                                            - image
+                                            - table
+                                          automatic_line_breaks: true
+                                          automatic_links: false
+                                          escape_markup: false
+                                          heading_anchors: false
+                                          smartypants: false
+                                          table_of_contents: false
+                                          antlers: false
+                                          type: markdown
+                                          display: 'Option Description'
+                                          icon: markdown
+                                          listable: hidden
+                                          instructions_position: above
+                                          visibility: visible
+                                          replicator_preview: true
+                                          hide_display: false
+                            type: replicator
+                            display: Options
+                            icon: replicator
+                            listable: hidden
+                            instructions_position: above
+                            visibility: visible
+                            replicator_preview: true
+                            hide_display: false
+                        -
+                          handle: example
+                          field:
+                            theme: material
+                            mode: javascript
+                            mode_selectable: true
+                            indent_type: tabs
+                            indent_size: 4
+                            key_map: default
+                            line_numbers: true
+                            line_wrapping: true
+                            antlers: false
+                            type: code
+                            display: 'Code Sample'
+                            icon: code
+                            listable: hidden
+                            instructions_position: above
+                            visibility: visible
+                            replicator_preview: true
+                            hide_display: false
+              type: replicator
+              display: Section
+              icon: replicator
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - sdk
+              max_items: 1
+              listable: false
+              localizable: true
+title: SDK
