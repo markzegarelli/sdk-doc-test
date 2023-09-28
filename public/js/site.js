@@ -856,9 +856,76 @@ Prism.languages.javascript = Prism.languages.extend("clike", {
   \******************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 // This is all you.
 
 __webpack_require__(/*! ./prism.js */ "./resources/js/prism.js");
+document.addEventListener('DOMContentLoaded', function () {
+  // grab the sections (targets) and menu_links (triggers)
+  // for menu items to apply active link styles to
+  var sections = document.querySelectorAll(".template__section");
+  var menu_links = document.querySelectorAll(".template__nav-item a");
+
+  // functions to add and remove the active class from links as appropriate
+  var makeActive = function makeActive(link) {
+    return menu_links[link].classList.add("active");
+  };
+  var removeActive = function removeActive(link) {
+    return menu_links[link].classList.remove("active");
+  };
+  var removeAllActive = function removeAllActive() {
+    return _toConsumableArray(Array(sections.length).keys()).forEach(function (link) {
+      return removeActive(link);
+    });
+  };
+
+  // change the active link a bit above the actual section
+  // this way it will change as you're approaching the section rather
+  // than waiting until the section has passed the top of the screen
+  var sectionMargin = 200;
+
+  // keep track of the currently active link
+  // use this so as not to change the active link over and over
+  // as the user scrolls but rather only change when it becomes
+  // necessary because the user is in a new section of the page
+  var currentActive = 0;
+
+  // listen for scroll events
+  window.addEventListener("scroll", function () {
+    // check in reverse order so we find the last section
+    // that's present - checking in non-reverse order would
+    // report true for all sections up to and including
+    // the section currently in view
+    //
+    // Data in play:
+    // window.scrollY    - is the current vertical position of the window
+    // sections          - is a list of the dom nodes of the sections of the page
+    //                     [...sections] turns this into an array so we can
+    //                     use array options like reverse() and findIndex()
+    // section.offsetTop - is the vertical offset of the section from the top of the page
+    // 
+    // basically this lets us compare each section (by offsetTop) against the
+    // viewport's current position (by window.scrollY) to figure out what section
+    // the user is currently viewing
+    var current = sections.length - _toConsumableArray(sections).reverse().findIndex(function (section) {
+      return window.scrollY >= section.offsetTop - sectionMargin;
+    }) - 1;
+
+    // only if the section has changed
+    // remove active class from all menu links
+    // and then apply it to the link for the current section
+    if (current !== currentActive) {
+      removeAllActive();
+      currentActive = current;
+      makeActive(current);
+    }
+  });
+}, false);
 
 /***/ }),
 

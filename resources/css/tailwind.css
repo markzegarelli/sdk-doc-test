@@ -23,6 +23,7 @@
     p {
         color: #2a2f45;
         margin-top: 1rem;
+        @apply font-light;
     }
     ul {
         list-style: disc;
@@ -70,4 +71,9 @@
 
 pre {
     font-size: 12px!important;
+}
+
+.active {
+    transition: color .3s ease-in-out;
+    color: #282828;
 }

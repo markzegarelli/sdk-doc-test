@@ -2,7 +2,7 @@
 <div class="w-56 h-100 fixed left-0 top-0 bottom-0 border-solid border-r border-grey-200 hidden lg:block">
     <ul class="list-none pl-4 mt-16">
         {{method}}
-            <li class="transition ease-in-out text-sm text-grey-500 duration-300 hover:text-grey-900"><a href="#{{sidebar_title | slugify}}">{{sidebar_title}}</a></li>
+            <li class="transition ease-in-out text-sm text-grey-500 duration-300 hover:text-grey-900 template__nav-item"><a href="#{{sidebar_title | slugify}}">{{sidebar_title}}</a></li>
         {{/method}}
     </ul>
 </div>
@@ -24,7 +24,7 @@
                         <h1>Amplitude SDK Doc POC</h1>
                     </div>
                     <div>
-                        <p>{{sdk_description | markdown}}</p>
+                        {{sdk_description | markdown}}
                     </div>
 
                 </div>
@@ -37,7 +37,7 @@
 
         {{# Data hookup starts here #}}
         {{ method }}
-        <section class="w-full flex flex-col items-center">
+        <section class="w-full flex flex-col items-center template__section">
             <div class="divider"></div>
             <div class="w-full flex justify-center top-0 sticky mt-16 h-14 bg-light-blue-50 z-30 ">
                 <div class="flex flex-col justify-center w-full px-20">

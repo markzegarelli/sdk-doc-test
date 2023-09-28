@@ -7,8 +7,8 @@ sdk_description: |-
 
 
   The main goal is to strip the existing SDK Doc format down to a bare minimum, and add back what is necessary and most helpful to users.
-updated_by: 692fa3b2-66d3-4b58-be3e-1f198b4b8316
-updated_at: 1695917870
+updated_by: 3ab3cd91-c441-4bb7-a34a-74c0c19c7979
+updated_at: 1695923167
 method:
   -
     id: ln29nht4
@@ -152,7 +152,7 @@ method:
     is_method: true
   -
     id: ln2dwz9z
-    name: 'Default Tracking'
+    name: 'Default tracking'
     is_method: false
     sidebar_title: 'Track default events'
     description: |-
@@ -185,7 +185,7 @@ method:
     enabled: true
   -
     id: ln2e6k9v
-    name: 'Track marketing attribution'
+    name: 'Default tracking: Marketing attribution'
     is_method: false
     sidebar_title: 'Track marketing attribution'
     description: 'Amplitude tracks UTM, referrers, and click IDs as part of marketing attribution tracking.'
@@ -238,7 +238,7 @@ method:
     enabled: true
   -
     id: ln2egemu
-    name: 'Track page views'
+    name: 'Default tracking: Page views'
     is_method: false
     sidebar_title: 'Track page views'
     description: 'Amplitude tracks page view events by default when the browser initializes the SDK. Page view events appear in Amplitude as `[Amplitude] Page Viewed`.'
@@ -286,6 +286,73 @@ method:
                 return window.location.pathname.includes('home');
               },
             },
+          },
+        });
+      mode: javascript
+    type: method
+    enabled: true
+  -
+    id: ln3gixjn
+    name: 'Default tracking: Sessions'
+    is_method: false
+    sidebar_title: 'Track sessions'
+    description: 'Amplitude defines a session as the period of time a user has your website open. When a session begins, Amplitude tracks the session start event: `[Amplitude] Start Session`. When that session ends, Amplitude tracks it with the `[Amplitude] End Session` event.'
+    example:
+      code: |-
+        // Opt out of session tracking
+        amplitude.init(AMPLITUDE_API_KEY, {
+          defaultTracking: {
+            sessions: false,
+          },
+        });
+      mode: javascript
+    type: method
+    enabled: true
+  -
+    id: ln3gn3t9
+    name: 'Default tracking: Form interactions'
+    is_method: false
+    sidebar_title: 'Track form interactions'
+    description: |-
+      Amplitude tracks form interactions when a user interacts with any `<form>` element on your site. 
+      ```html
+      <form id="subscriber-form" name="subscriber-form" action="/subscribe">
+        <input type="text" />
+        <input type="submit" />
+      </form>
+      ```
+
+
+      The initial interaction can be the first change to a text input, radio button, or dropdown. Amplitude tracks this with the `[Amplitude] Form Started` event.
+
+      Amplitude sends an `[Amplitude] Form Submitted` event when the user submits the form
+    example:
+      code: |-
+        // Disable form tracking
+        amplitude.init(AMPLITUDE_API_KEY, {
+          defaultTracking: {
+            formInteractions: false,
+          },
+        });
+      mode: javascript
+    type: method
+    enabled: true
+  -
+    id: ln3groff
+    name: 'Default tracking: File downloads'
+    is_method: false
+    sidebar_title: 'Track file downloads'
+    description: |-
+      Amplitude tracks file downloads on your site when a user clicks an anchor or `<a>` tag that links to a file as `[Amplitude] File Downloaded`.
+
+      Amplitude uses the following regular expression to determine if a link points to a file:
+      `pdf|xlsx?|docx?|txt|rtf|csv|exe|key|pp(s|t|tx)|7z|pkg|rar|gz|zip|avi|mov|mp4|mpe?g|wmv|midi?|mp3|wav|wma`
+    example:
+      code: |-
+        // Disable file download tracking
+        amplitude.init(AMPLITUDE_API_KEY, {
+          defaultTracking: {
+            fileDownloads: false,
           },
         });
       mode: javascript
