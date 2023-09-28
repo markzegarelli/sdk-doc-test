@@ -30,6 +30,13 @@
         margin-left: 1rem;
         margin-top: 0.5rem;
     }
+    code:not(pre *) {
+        background: #eee;
+        padding: 2px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 12px;
+    }
 }
 
 .copy {

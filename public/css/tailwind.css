@@ -493,6 +493,15 @@ ul {
     }
 
 
+code:not(pre *) {
+        background: #eee;
+        padding: 2px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 12px;
+    }
+
+
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -843,11 +852,6 @@ ul {
 
 .flex{
   display: flex !important;
-}
-
-
-.table{
-  display: table !important;
 }
 
 
