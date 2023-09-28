@@ -38,6 +38,9 @@
         border-radius: 5px;
         font-size: 12px;
     }
+    table {
+        @apply table-auto w-full my-4;
+    }
 }
 
 .copy {
@@ -71,6 +74,10 @@
 
 pre {
     font-size: 12px!important;
+}
+
+code::before, code::after {
+    content: ''!important;
 }
 
 .active {

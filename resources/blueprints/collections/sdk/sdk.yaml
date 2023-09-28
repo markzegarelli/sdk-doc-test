@@ -69,7 +69,7 @@ tabs:
                             visibility: visible
                             replicator_preview: true
                             hide_display: false
-                            width: 25
+                            width: 33
                         -
                           handle: is_method
                           field:
@@ -97,7 +97,7 @@ tabs:
                             visibility: visible
                             replicator_preview: true
                             hide_display: false
-                            width: 50
+                            width: 33
                         -
                           handle: description
                           field:
@@ -221,6 +221,28 @@ tabs:
                             visibility: visible
                             replicator_preview: true
                             hide_display: false
+                            width: 75
+                        -
+                          handle: table-type
+                          field:
+                            options:
+                              Options: Options
+                              Parameters: Parameters
+                            taggable: false
+                            push_tags: false
+                            multiple: false
+                            clearable: false
+                            searchable: true
+                            cast_booleans: false
+                            type: select
+                            display: 'Table type'
+                            icon: select
+                            listable: hidden
+                            instructions_position: above
+                            visibility: visible
+                            replicator_preview: true
+                            hide_display: false
+                            width: 25
                         -
                           handle: example
                           field:

@@ -8,7 +8,7 @@ sdk_description: |-
 
   The main goal is to strip the existing SDK Doc format down to a bare minimum, and add back what is necessary and most helpful to users.
 updated_by: 3ab3cd91-c441-4bb7-a34a-74c0c19c7979
-updated_at: 1695924899
+updated_at: 1695941038
 method:
   -
     id: ln29nht4
@@ -325,7 +325,7 @@ method:
 
       The initial interaction can be the first change to a text input, radio button, or dropdown. Amplitude tracks this with the `[Amplitude] Form Started` event.
 
-      Amplitude sends an `[Amplitude] Form Submitted` event when the user submits the form
+      Amplitude sends an `[Amplitude] Form Submitted` event when the user submits the form.
     example:
       code: |-
         // Disable form tracking
@@ -432,4 +432,54 @@ method:
       mode: javascript
     type: method
     enabled: true
+  -
+    id: ln3ncp2z
+    name: 'setGroup(groupType, groupName)'
+    is_method: true
+    sidebar_title: 'Group users'
+    description: |-
+      You can group your users based on criteria that you define, and query those groups in Amplitude. If at least one member of a group performs the specified event, the count returned by your query includes that group.
+
+      When you define a group, you specify a `type` and a `name`. For example:
+      | Type    | Name    |
+      | --- | --- |
+      | `orgId`    | `15`     |
+      | `sport` | `soccer` |
+
+      Setting a group also sets `groupType:groupName` as a user property in Amplitude, and overwrites any existing group of the same type for that user.
+
+      You can pass an event object with groups to a Track call to set an event-level group. Event-level groups the group designation applies only to the specific logged event, and doesn't persist for the user unless you set it with `setGroup()
+    options:
+      -
+        id: ln3nu2en
+        option_name: groupType
+        option_type: string
+        option_description: 'The category by which you group users. For example, Joe and Sue both have an `orgId`.'
+        type: option
+        enabled: true
+      -
+        id: ln3nvw55
+        option_name: groupName
+        option_type: 'string | array[strings]'
+        option_description: 'The group to which an individual user belongs. For example, Joe belongs to OrgId `15` and Sue belongs to OrgId `10`.'
+        type: option
+        enabled: true
+    example:
+      code: |-
+        // set group with a single group name
+        amplitude.setGroup('orgId', '15');
+
+        // set group with multiple group names
+        amplitude.setGroup('sport', ['soccer', 'tennis']);
+
+        // Create an event-level group
+        amplitude.track({
+          event_type: 'event type',
+          event_properties: { eventPropertyKey: 'event property value' },
+          groups: { 'orgId': '15' }
+        })
+      mode: javascript
+    type: method
+    enabled: true
+    table-type: Parameters
 ---

@@ -125,7 +125,7 @@ module.exports = {
         },
         fontFamily: {
           sans: ['IBM Plex Sans', 'sans-serif'],
-          mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+          mono: [ 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
         }
         // extend: {
         //     fontFamily: {
