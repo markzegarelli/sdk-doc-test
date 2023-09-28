@@ -887,7 +887,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // change the active link a bit above the actual section
   // this way it will change as you're approaching the section rather
   // than waiting until the section has passed the top of the screen
-  var sectionMargin = 200;
+  var sectionMargin = 0;
 
   // keep track of the currently active link
   // use this so as not to change the active link over and over

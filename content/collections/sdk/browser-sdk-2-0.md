@@ -8,7 +8,7 @@ sdk_description: |-
 
   The main goal is to strip the existing SDK Doc format down to a bare minimum, and add back what is necessary and most helpful to users.
 updated_by: 3ab3cd91-c441-4bb7-a34a-74c0c19c7979
-updated_at: 1695941038
+updated_at: 1695943425
 method:
   -
     id: ln29nht4
@@ -364,11 +364,11 @@ method:
     is_method: true
     sidebar_title: 'Track a custom event'
     description: |-
-      You can track any other event or interaction on your site with the Track function.
+      Track any event or interaction on your site with the Track function.
 
       For example, you can track a `Button Clicked` event when a user clicks a specific button.
 
-      You can also pass a BaseEvent object to the track function. For more information, see the [BaseEvent](https://amplitude.github.io/Amplitude-TypeScript/interfaces/_amplitude_analytics_browser.Types.BaseEvent.html) interface documentation.
+      Pass a BaseEvent object to the track function. For more information, see the [BaseEvent](https://amplitude.github.io/Amplitude-TypeScript/interfaces/_amplitude_analytics_browser.Types.BaseEvent.html) interface documentation.
     example:
       code: |-
         // Track a basic event
@@ -441,14 +441,14 @@ method:
       You can group your users based on criteria that you define, and query those groups in Amplitude. If at least one member of a group performs the specified event, the count returned by your query includes that group.
 
       When you define a group, you specify a `type` and a `name`. For example:
-      | Type    | Name    |
-      | --- | --- |
-      | `orgId`    | `15`     |
+      | Type    | Name     |
+      | ------- | -------- |
+      | `orgId` | `15`     |
       | `sport` | `soccer` |
 
       Setting a group also sets `groupType:groupName` as a user property in Amplitude, and overwrites any existing group of the same type for that user.
 
-      You can pass an event object with groups to a Track call to set an event-level group. Event-level groups the group designation applies only to the specific logged event, and doesn't persist for the user unless you set it with `setGroup()
+      You can pass an event object with groups to a Track call to set an event-level group. Event-level groups the group designation applies only to the specific logged event, and doesn't persist for the user unless you set it with `setGroup()`.`
     options:
       -
         id: ln3nu2en

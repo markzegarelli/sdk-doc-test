@@ -263,6 +263,24 @@ tabs:
                             visibility: visible
                             replicator_preview: true
                             hide_display: false
+                    test:
+                      display: test
+                      instructions: null
+                      icon: null
+                      fields:
+                        -
+                          handle: test
+                          field:
+                            input_type: text
+                            antlers: false
+                            type: text
+                            display: test
+                            icon: text
+                            listable: hidden
+                            instructions_position: above
+                            visibility: visible
+                            replicator_preview: true
+                            hide_display: false
               type: replicator
               display: Section
               icon: replicator
